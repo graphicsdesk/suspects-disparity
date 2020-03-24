@@ -20,47 +20,6 @@
 <div id="canvas-container"></div>
 
 <!-- scripts -->
-<script>
-  const NUM_PEOPLE = 100;
-  const ALPHABET = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
-  const peoplesPerLine = {
-    0: 10,
-    460: 20,
-    600: 25,
-  };
-  let peoplePerLine;
-  for (const minWidth in peoplesPerLine) {
-    console.log(window.innerWidth, minWidth)
-    if (window.innerWidth > minWidth) {
-      peoplePerLine = peoplesPerLine[minWidth];
-    }
-  }
-
-  function getIndices(n) {
-    const indices = new Array(NUM_PEOPLE).fill().map((_, i) => i);
-    // return indices.sort(() => .5 - Math.random()).slice(0, n); // Random
-    return indices.slice(0, n); // Front
-  }
-
-  function drawPeople(id) {
-    const el = document.getElementById(id);
-    
-    const letters = [];
-    const indices = getIndices(parseInt(el.getAttribute('data-percentage')));
-    for (let i = 0; i < NUM_PEOPLE; i++) {
-      const span = document.createElement('span');
-      span.innerText = ALPHABET[(Math.random() * ALPHABET.length) << 0];
-      if (indices.includes(i))
-        span.classList.add('highlight-person');
-      el.appendChild(span);
-      if ((i + 1) % peoplePerLine == 0)
-        el.appendChild(document.createElement('br'))
-    }
-  }
-
-  drawPeople('black-victims');
-  drawPeople('white-victims');
-</script>
+<script src="./script.js" inline="inline"></script>
 
 <!-- <script src="https://d3js.org/d3.v4.min.js"></script> -->
-<!-- <script src="./script.js" inline="inline"></script> -->
