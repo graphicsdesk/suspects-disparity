@@ -1,14 +1,57 @@
+$highlight-color: red;
+
+.graphic-title {
+  font-family: Graphik;
+  font-family: 16px;
+  text-align: center;
+}
+
 .victims {
-  max-width: 600px;
   word-wrap: break-word;
   text-align: center;
   font-family: WeePeople;
   font-size: 30px;
   color: #121212;
+  margin: 0;
+  margin-bottom: 12px;
 }
 
 .highlight-person {
-  color: red;
+  color: $highlight-color;
+}
+
+.caption {
+  font-family: Graphik;
+  text-align: center;
+  margin: 0;
+  margin-bottom: 15px;
+  color: #121212;
+  font-size: 16px;
+  font-weight: 600;
+}
+
+.percentage {  
+  color: $highlight-color;
+}
+
+/* Graphik */
+
+@font-face {
+  font-family: Graphik;
+  src: url('https://spectator-fonts.s3.amazonaws.com/Graphik-400-Regular.otf') format('opentype');
+  font-weight: normal;
+}
+
+@font-face {
+  font-family: Graphik;
+  src: url('https://spectator-fonts.s3.amazonaws.com/Graphik-600-Semibold.otf') format('opentype');
+  font-weight: 600;
+}
+
+@font-face {
+  font-family: Graphik;
+  src: url('https://spectator-fonts.s3.amazonaws.com/Graphik-700-Bemibold.otf') format('opentype');
+  font-weight: 700;
 }
 
 /* WeePeople stuff */
