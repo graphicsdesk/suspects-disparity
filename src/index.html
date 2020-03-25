@@ -1,23 +1,32 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="https://raw.githubusercontent.com/propublica/weepeople/master/weepeople.css" inline="inline">
   <link rel="stylesheet" href="./styles.scss" inline="inline">
+  <link href="https://fonts.googleapis.com/css?family=Roboto:400,700,500&display=swap" rel="stylesheet">
 </head>
 
-<p class="graphic-title">Percentage of unsolved crimes by victim race</p>
+<div class="victims-graphic-container">
 
-<div class="victims-container">
-  <p class="weepeople victims" id="black-victims" data-percentage="33"></p>
-  <p class="caption">Black victims: <span class="percentage">33%</span></p>
+  <p>In 2018, among 197 homicides involving Black victims,</p>
+
+  <div class="victims-container">
+    <p class="weepeople victims" id="black-victims"></p>
+  </div>
+  <p class="spacing-bottom"><i>33%</i> were left <b>without a suspect or an arrest.</b></p>
+
+  <p>For the 26 homicides with white victims, however,</p>
+  <div class="victims-container">
+    <p class="weepeople victims" id="white-victims"></p>
+  </div>
+  <p>that number drops to <i>19%</i>.</p>
+
+  <div id="source-box">
+    <p>Source: <a href="https://www1.nyc.gov/site/nypd/stats/reports-analysis/homicide.page">NYPD Supplementary Homicide Report 2018</a></p>
+    <p>Credit: Iconography is <a href="https://github.com/propublica/weepeople">Wee People</a> by ProPublica; visualization by Jason Kao.</p>
+  </div>
+
 </div>
-
-<div class="victims-container">
-  <p class="weepeople victims" id="white-victims" data-percentage="19"></p>
-  <p class="caption">White victims: <span class="percentage">19%</span></p>
-</div>
-
-<div id="canvas-container"></div>
+<!-- <div id="canvas-container"></div> -->
 
 <!-- scripts -->
 <script src="./script.js" inline="inline"></script>

@@ -1,11 +1,13 @@
+const numPeople = { 'black-victims': 197, 'white-victims': 26 };
+const numNoSuspect = { 'black-victims': 65, 'white-victims': 5 };
+
 /* Alphabet icon generating */
 
-const NUM_PEOPLE = 100;
 const ALPHABET = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
 const peoplesPerLine = {
-  0: 10,
-  460: 20,
-  600: 25,
+  0: 13,
+  460: 13,
+  600: 26,
 };
 let peoplePerLine;
 for (const minWidth in peoplesPerLine) {
@@ -15,8 +17,11 @@ for (const minWidth in peoplesPerLine) {
   }
 }
 
-function getIndices(n) {
-  const indices = new Array(NUM_PEOPLE).fill().map((_, i) => i);
+// TODO: ADD WINDOW RESIZE
+
+function getIndices(id) {
+  const indices = new Array(numPeople[id]).fill().map((_, i) => i);
+  const n = numNoSuspect[id];
   // return indices.sort(() => .5 - Math.random()).slice(0, n); // Random
   return indices.slice(0, n); // Front
 }
@@ -25,11 +30,10 @@ function drawPeople(id) {
   const el = document.getElementById(id);
   
   const letters = [];
-  const indices = getIndices(parseInt(el.getAttribute('data-percentage')));
-  for (let i = 0; i < NUM_PEOPLE; i++) {
+  for (let i = 0; i < numPeople[id]; i++) {
     const span = document.createElement('span');
     span.innerText = ALPHABET[(Math.random() * ALPHABET.length) << 0];
-    if (indices.includes(i))
+    if (i < numNoSuspect[id])
       span.classList.add('highlight-person');
     el.appendChild(span);
     if ((i + 1) % peoplePerLine == 0)
@@ -40,12 +44,20 @@ function drawPeople(id) {
 drawPeople('black-victims');
 drawPeople('white-victims');
 
+function highlightPercentagesInCaptions() {
+  document.getElementsByClassName('.icons-caption').forEach(caption => {
+    // caption.innerHTML = caption.innerHTML.replace()
+  });
+}
+// highlightPercentagesInCaptions()
+
 /* Text balancing maybe */
 
 // import textBalancer from 'text-balancer';
 // textBalancer.balanceText('.victims');
 
 /* D3 force stuff */
+/*
 
 function forceIcons() {
   var PIXEL_RATIO = (function () {
@@ -112,3 +124,5 @@ function forceIcons() {
     context.restore();
   }
 }
+
+*/
