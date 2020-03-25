@@ -41,15 +41,10 @@ function drawPeople(id) {
   }
 }
 
-drawPeople('black-victims');
-drawPeople('white-victims');
-
-function highlightPercentagesInCaptions() {
-  document.getElementsByClassName('.icons-caption').forEach(caption => {
-    // caption.innerHTML = caption.innerHTML.replace()
-  });
-}
-// highlightPercentagesInCaptions()
+window.onload = () => {
+  drawPeople('black-victims');
+  drawPeople('white-victims');
+};
 
 /* Text balancing maybe */
 
